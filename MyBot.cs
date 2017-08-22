@@ -55,6 +55,30 @@ namespace SimpleBot
                     await e.Channel.SendMessage(greeting + " " + e.User.Name);
                 });
 
+            // RANDUSER : choose random user
+            commands.CreateCommand("randUser")
+                .Alias("ru", "randomuser", "ruser")
+                .Do(async (e) =>
+                {
+                    var userList = e.Channel.Users;
+                    User randomUser = userList.ElementAt((rnd.Next(0, userList.Count())));
+                    await e.Channel.SendMessage(e.User.Name + " randomly chose... " + randomUser.Mention);
+                });
+
+            // FLIPCOIN : flip a coin and show result (heads or tails)
+            commands.CreateCommand("flipCoin")
+            .Alias("fc", "flip", "coin", "coinflip", "cf")
+            .Do(async (e) =>
+            {
+                int curNum = (new Random().Next(0, 2)); //choose either 0 or 1
+                String flippedCoin = "Heads";
+                if (curNum == 1)
+                {
+                    flippedCoin = "Tails";
+                }
+                await e.Channel.SendMessage(e.User.Name + " flipped a coin: " + flippedCoin);
+            });
+            
             discord.ExecuteAndWait(async () =>
             {
                 await discord.Connect({bot-token}, TokenType.Bot);
