@@ -13,3 +13,6 @@ Creating a simple Discord bot for some fun. I'm curious to see what I can do wit
    * Ex: !ru won a prize! -> "(randomly-chosen-user) won a prize!"
 3. FlipCoin: Flips a coin and shows heads or tails
    * Ex: !flipCoin, !flip, !fc, !coinFlip
+4. Roll: Rolls dice based on specified number and type of dice; can also use various operators (+,-,*,/,%,^) to combine with your roll
+   * Ex: !roll, !dice, !r
+   * Ex: !roll d4, !roll 3d8, !roll 2d7 + 4, !roll d6 - d100, !roll 5d20 + 6 * d100 
